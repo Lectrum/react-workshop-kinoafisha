@@ -1,0 +1,77 @@
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1152px;
+    color: var(--paletteColor13);
+    margin-right: auto;
+    margin-bottom: 30px;
+    margin-left: auto;
+    padding-right: 34px;
+    padding-left: 34px;
+
+    & a:any-link {
+        color: var(--paletteColor13);
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: filter 0.3s ease, color 0.3s ease;
+
+        &:hover {
+            filter: brightness(0.6) sepia(1) hue-rotate(-10deg) saturate(5);
+        }
+
+        &:active {
+            color: var(--paletteColor9);
+        }
+    }
+
+    & span {
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    & .social {
+        display: flex;
+        width: 77px;
+        justify-content: space-between;
+
+        & a {
+            display: block;
+            width: 24px;
+            height: 24px;
+            transition: filter 0.3s ease;
+
+            &:hover {
+                filter: brightness(0.6) sepia(1) hue-rotate(-10deg) saturate(5);
+            }
+        }
+
+        & .facebook {
+            background-image: url('../images/facebook-logo.svg');
+        }
+
+        & .telegram {
+            background-image: url('../images/telegram-logo.svg');
+        }
+    }
+
+    @media (--phonePortrait), (--phoneLandscape) {
+        flex-direction: column;
+        align-items: center;
+
+        & a,
+        & span {
+            margin-bottom: 10px;
+        }
+
+        & a {
+            order: 1;
+        }
+
+        & span {
+            order: 3;
+            text-align: center;
+        }
+    }
+}

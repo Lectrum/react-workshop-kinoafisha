@@ -1,0 +1,4 @@
+body {
+    background-color: var(--paletteColor10);
+    user-select: none;
+}

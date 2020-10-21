@@ -1,0 +1,152 @@
+.header {
+    max-width: 1152px;
+    margin-right: auto;
+    margin-bottom: 80px;
+    margin-left: auto;
+    padding-top: 34px;
+    padding-right: 34px;
+    padding-left: 34px;
+
+    & .logo {
+        width: 310px;
+        height: 50px;
+        margin-bottom: 50px;
+        color: var(--paletteColor13);
+        background-image: url('../images/logo.svg');
+        background-repeat: no-repeat;
+        cursor: pointer;
+        transition: filter 0.3s ease;
+
+        &:hover {
+            filter: brightness(0.6) sepia(1) hue-rotate(-10deg) saturate(5);
+        }
+    }
+
+    & .filters {
+        display: flex;
+        justify-content: center;
+
+        & .filter {
+            position: relative;
+            width: 100%;
+            height: 170px;
+            box-shadow: 0px 1px 2px var(--paletteColor1);
+            background-size: 100%;
+            transition: outline 0.3s ease, transform 0.3s ease;
+            overflow: hidden;
+            cursor: pointer;
+
+            &:before {
+                position: absolute;
+                content: '';
+                left: 0;
+                bottom: 0;
+                right: 0;
+                height: 55px;
+                background: linear-gradient(
+                    to top,
+                    black,
+                    cubic-bezier(0.48, 0.46, 0.46, 0.68),
+                    transparent
+                );
+            }
+
+            &:hover {
+                transform: translateY(-3px);
+            }
+
+            &:active {
+                outline: 2px solid var(--paletteColor11);
+            }
+
+            &:first-child {
+                background-image: url('../images/filter-1.jpg');
+            }
+
+            &:nth-child(2) {
+                background-image: url('../images/filter-2.jpg');
+            }
+
+            &:last-child {
+                background-image: url('../images/filter-3.jpg');
+            }
+
+            &:not(:last-child) {
+                margin-right: 47px;
+            }
+
+            & span {
+                position: absolute;
+                right: 18px;
+                bottom: 8px;
+                color: var(--paletteColor13);
+                font-size: 24px;
+                font-weight: 700;
+                text-align: right;
+            }
+        }
+
+        & .selectedFilter {
+            outline: 2px solid var(--paletteColor13);
+        }
+    }
+
+    @media (--phonePortrait), (--phoneLandscape) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-right: 10px;
+        padding-left: 10px;
+
+        & .filters {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+
+            & .filter {
+                width: 100%;
+
+                &:not(:last-child) {
+                    margin-right: 0;
+                    margin-bottom: 15px;
+                }
+
+                & span {
+                    font-size: 26px;
+                }
+            }
+        }
+    }
+
+    @media (--phonePortrait) {
+        & .logo {
+            width: 320px;
+            height: 50px;
+            margin-left: 30px;
+        }
+    }
+
+    @media (--phoneLandscape) {
+        & .filters {
+            & .filter {
+                max-width: 100%;
+                background-position: center -70px;
+
+                & span {
+                    font-size: 26px;
+                }
+            }
+        }
+    }
+    @media (--tabletPortrait) {
+        & .filters {
+            & .filter {
+                & span {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}

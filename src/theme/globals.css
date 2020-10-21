@@ -1,0 +1,30 @@
+* {
+    outline: 0;
+}
+
+body {
+    /* Зачаровать шрифты */
+    font-smoothing: antialiased;
+    font-variant-ligatures: none;
+    font-family: Helvetica, Arial, sans-serif;
+
+    /**
+     * Фикс для мобильного сафари, чтобы при поворотах он не склеивал и не терял контент.
+     * Префиксы установлены вручную, так как на момент 13.03.2018
+     * autoprefixer этого не делал автоматически.
+     */
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+
+    min-height: 100vh;
+
+    & ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
