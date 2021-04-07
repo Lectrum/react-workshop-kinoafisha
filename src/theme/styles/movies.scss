@@ -87,8 +87,6 @@
 
     @media (--phonePortrait), (--phoneLandscape) {
         justify-content: space-around;
-        padding-right: 14px;
-        padding-left: 14px;
         gap: 10px 5px;
 
         & article {

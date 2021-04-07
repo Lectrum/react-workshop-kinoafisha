@@ -1,14 +1,14 @@
 main {
-    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
     max-width: var(--main-width);
     min-height: 100vh;
     margin: 0 auto;
-    padding: var(--main-padding) var(--main-padding) 0 var(--main-padding);
+    padding: var(--main-padding);
     --outline: unset;
 
     & svg.logo {
         width: 310px;
-        height: 50px;
         margin-bottom: 50px;
         cursor: pointer;
         transition: filter 0.3s ease;
@@ -29,5 +29,14 @@ main {
                 color: var(--color-9);
             }
         }
+
+        @media (--phonePortrait), (--phoneLandscape) {
+            width: 230px;
+            margin: 0 auto 30px;
+        }
+    }
+
+    @media (--phonePortrait), (--phoneLandscape) {
+        padding: 20px 10px;
     }
 }

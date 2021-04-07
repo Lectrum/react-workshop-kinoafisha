@@ -68,8 +68,6 @@
         @include mixins.center;
 
         flex-direction: column;
-        padding-right: 14px;
-        padding-left: 14px;
 
         & .filters {
             @include mixins.center;
@@ -88,14 +86,6 @@
                     font-size: 26px;
                 }
             }
-        }
-    }
-
-    @media (--phonePortrait) {
-        & .logo {
-            width: 320px;
-            height: 50px;
-            margin-left: 30px;
         }
     }
 
