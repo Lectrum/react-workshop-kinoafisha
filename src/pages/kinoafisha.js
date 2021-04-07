@@ -20,19 +20,17 @@ export const Kinoafisha = () => {
 
     const moviesJSX = movies.map((movie) => {
         return (
-            <div
-                className = 'movie'
-                key = { movie.id }>
-                <div className = 'poster'>
-                    <span className = 'genre'>{movie.genre}</span>
-                    <img
-                        alt = { movie.title }
-                        src = { movie.poster }
-                    />
-                    <span className = 'rating'>{movie.rating}</span>
-                </div>
-                <span className = 'title'>{movie.title}</span>
-            </div>
+            <article key = { movie.id }>
+                <h1>{movie.genre}</h1>
+                <img
+                    alt = { movie.title }
+                    src = { movie.poster }
+                />
+                <footer>
+                    <h1>{movie.title}</h1>
+                    <code>{movie.rating}</code>
+                </footer>
+            </article>
         );
     });
 
@@ -59,18 +57,17 @@ export const Kinoafisha = () => {
                 </div>
             </div>
 
-            <div className = 'content'>{moviesJSX}</div>
+            <div className = 'movies'>{moviesJSX}</div>
         </>
     );
 };
 
 const Filter = (props) => {
     return (
-        <div
-            className = 'filter'
+        <section
             style = {{ '--outline': props.selected && 'solid' }}
             onClick = { props.onClick }>
             <span>{props.title}</span>
-        </div>
+        </section>
     );
 };

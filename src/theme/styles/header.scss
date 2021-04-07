@@ -27,7 +27,7 @@
         display: flex;
         justify-content: center;
 
-        & .filter {
+        & section {
             position: relative;
             width: 100%;
             height: 170px;
@@ -48,7 +48,7 @@
                 background: linear-gradient(
                     to top,
                     black,
-                    cubic-bezier(0.48, 0.46, 0.46, 0.68),
+                    #00001111,
                     transparent
                 );
             }
@@ -99,7 +99,7 @@
             align-items: center;
             width: 100%;
 
-            & .filter {
+            & section {
                 width: 100%;
 
                 &:not(:last-child) {

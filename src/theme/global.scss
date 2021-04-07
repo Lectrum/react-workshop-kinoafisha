@@ -6,7 +6,10 @@ body {
     /* Зачаровать шрифты */
     font-smoothing: antialiased;
     font-variant-ligatures: none;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: system-ui, Helvetica, Arial, sans-serif;
+    background-color: var(--color-10);
+    user-select: none;
+    min-height: 100vh;
 
     /**
      * Фикс для мобильного сафари, чтобы при поворотах он не склеивал и не терял контент.
@@ -16,8 +19,6 @@ body {
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
-
-    min-height: 100vh;
 
     & ul {
         list-style-type: none;
