@@ -1,43 +1,31 @@
 /* Core */
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+
+/* Components */
+import { Filter, Movie } from '../components';
+import { Logo } from '../theme/icons';
 
 /* Instruments */
-import { api } from '../api';
+import { useMovies } from '../hooks';
 
 export const Kinoafisha = () => {
     const [ selectedFilter, setSelectedFilter ] = useState('upcoming');
-    const [ movies, setMovies ] = useState([]);
-
-    useEffect(() => {
-        const _getMoviesByFilter = async (nextFilter) => {
-            const newMovies = await api.getMovies(nextFilter);
-
-            setMovies(newMovies);
-        };
-
-        _getMoviesByFilter(selectedFilter);
-    }, [ selectedFilter ]);
+    const [ movies ] = useMovies(selectedFilter);
 
     const moviesJSX = movies.map((movie) => {
         return (
-            <article key = { movie.id }>
-                <h1>{movie.genre}</h1>
-                <img
-                    alt = { movie.title }
-                    src = { movie.poster }
-                />
-                <footer>
-                    <h1>{movie.title}</h1>
-                    <code>{movie.rating}</code>
-                </footer>
-            </article>
+            <Movie
+                key = { movie.id }
+                movie = { movie }
+            />
         );
     });
 
     return (
-        <>
-            <div className = 'header'>
-                <div className = 'logo' />
+        <main>
+            <header className = 'header'>
+                <Logo />
+
                 <div className = 'filters'>
                     <Filter
                         selected = { selectedFilter === 'latest' }
@@ -55,19 +43,9 @@ export const Kinoafisha = () => {
                         onClick = { () => setSelectedFilter('popular') }
                     />
                 </div>
-            </div>
+            </header>
 
-            <div className = 'movies'>{moviesJSX}</div>
-        </>
-    );
-};
-
-const Filter = (props) => {
-    return (
-        <section
-            style = {{ '--outline': props.selected && 'solid' }}
-            onClick = { props.onClick }>
-            <span>{props.title}</span>
-        </section>
+            <section className = 'movies'>{moviesJSX}</section>
+        </main>
     );
 };
