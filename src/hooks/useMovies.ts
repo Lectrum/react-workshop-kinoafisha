@@ -1,22 +1,17 @@
 /* Core */
-import { useState, useEffect } from 'react';
+import { useQuery } from 'react-query';
 
 /* Instruments */
-import { api } from '../api';
-import { IMovie, UFilter } from '../types';
+import { IMovie } from '../types';
+import { filterStore } from '../lib/filterStore';
 
-export const useMovies = (selectedFilter: UFilter = 'upcoming') => {
-    const [ movies, setMovies ] = useState<IMovie[]>([]);
+export const useMovies = () => {
+    const query = useQuery<IMovie[]>(
+        `/movies?filter=${filterStore.selectedFilter}`,
+        {
+            initialData: [],
+        },
+    );
 
-    useEffect(() => {
-        const getMoviesByFilter = async (nextFilter: UFilter) => {
-            const newMovies = await api.getMovies(nextFilter);
-
-            setMovies(newMovies);
-        };
-
-        getMoviesByFilter(selectedFilter);
-    }, [ selectedFilter ]);
-
-    return { movies };
+    return query;
 };

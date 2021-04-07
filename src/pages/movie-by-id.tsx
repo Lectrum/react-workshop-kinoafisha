@@ -9,9 +9,9 @@ import { useMovies } from '../hooks';
 
 export const MovieById: React.FC = () => {
     const params = useParams();
-    const { movies } = useMovies();
+    const { data: movies } = useMovies();
 
-    const movieToView = movies.find((movie) => movie.id === params.id);
+    const movieToView = movies?.find((movie) => movie.id === params.id);
 
     return (
         <main>

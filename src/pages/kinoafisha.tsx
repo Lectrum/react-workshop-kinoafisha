@@ -1,5 +1,5 @@
 /* Core */
-import { useState } from 'react';
+import { observer } from 'mobx-react-lite';
 
 /* Components */
 import { Filter, Movie } from '../components';
@@ -7,13 +7,12 @@ import { Logo } from '../theme/icons';
 
 /* Instruments */
 import { useMovies } from '../hooks';
-import { UFilter } from '../types';
+import { filterStore } from '../lib/filterStore';
 
-export const Kinoafisha: React.FC = () => {
-    const [ selectedFilter, setSelectedFilter ] = useState<UFilter>('upcoming');
-    const { movies } = useMovies(selectedFilter);
+export const Kinoafisha: React.FC = observer(() => {
+    const { data: movies } = useMovies();
 
-    const moviesJSX = movies.map((movie) => {
+    const moviesJSX = movies?.map((movie) => {
         return (
             <Movie
                 key = { movie.id }
@@ -29,19 +28,20 @@ export const Kinoafisha: React.FC = () => {
 
                 <div className = 'filters'>
                     <Filter
-                        selected = { selectedFilter === 'latest' }
+                        selected = { filterStore.selectedFilter === 'latest' }
                         title = { `Новинки ${new Date().getFullYear()}` }
-                        onClick = { () => setSelectedFilter('latest') }
+                        onClick = { () => filterStore.setSelectedFilter('latest') }
                     />
                     <Filter
-                        selected = { selectedFilter === 'upcoming' }
+                        selected = { filterStore.selectedFilter === 'upcoming' }
                         title = 'Скоро в кинотеатрах'
-                        onClick = { () => setSelectedFilter('upcoming') }
+                        onClick = { () => filterStore.setSelectedFilter('upcoming')
+                        }
                     />
                     <Filter
-                        selected = { selectedFilter === 'popular' }
+                        selected = { filterStore.selectedFilter === 'popular' }
                         title = 'В топ-чартах'
-                        onClick = { () => setSelectedFilter('popular') }
+                        onClick = { () => filterStore.setSelectedFilter('popular') }
                     />
                 </div>
             </header>
@@ -49,4 +49,4 @@ export const Kinoafisha: React.FC = () => {
             <section className = 'movies'>{moviesJSX}</section>
         </main>
     );
-};
+});

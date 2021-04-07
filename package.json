@@ -12,8 +12,11 @@
         "axios": "0.21.1",
         "classnames": "2.3.1",
         "history": "5.0.0",
+        "mobx": "6.1.8",
+        "mobx-react-lite": "3.2.0",
         "react": "17.0.2",
         "react-dom": "17.0.2",
+        "react-query": "3.13.4",
         "react-router-dom": "6.0.0-beta.0",
         "sanitize.css": "12.0.1",
         "waait": "1.0.5"
