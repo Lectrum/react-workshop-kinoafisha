@@ -1,8 +1,10 @@
-// Core
-import React from 'react';
-import ReactDOM from 'react-dom';
+/* Core */
+import { render } from 'react-dom';
 
-// App
-import { Kinoafisha } from './components/Kinoafisha';
+/* Components */
+import { Kinoafisha } from './components/KinoafishaFinish';
 
-ReactDOM.render(<Kinoafisha />, document.getElementById('root'));
+/* Instruments */
+import './theme/init.scss';
+
+render(<Kinoafisha />, document.getElementById('root'));

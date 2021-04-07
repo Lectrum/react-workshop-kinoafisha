@@ -1,6 +1,3 @@
-import React from 'react';
-import '../../theme/init.css';
-
 export const Kinoafisha = () => {
     return (
         <section className = 'welcome'>

@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: space-between;
     max-width: 1152px;
-    color: var(--paletteColor13);
+    color: var(--color-3);
     margin-right: auto;
     margin-bottom: 30px;
     margin-left: auto;
@@ -11,7 +11,7 @@
     padding-left: 34px;
 
     & a:any-link {
-        color: var(--paletteColor13);
+        color: var(--color-3);
         font-size: 12px;
         font-weight: 700;
         cursor: pointer;
@@ -22,7 +22,7 @@
         }
 
         &:active {
-            color: var(--paletteColor9);
+            color: var(--color-4);
         }
     }
 
