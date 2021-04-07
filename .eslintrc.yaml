@@ -6,3 +6,5 @@ rules:
     no-console: 0
     react/no-danger: 0
     valid-jsdoc: 0
+    no-use-before-define: 0
+    no-unused-vars: 0

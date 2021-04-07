@@ -3,12 +3,13 @@ import { useState, useEffect } from 'react';
 
 /* Instruments */
 import { api } from '../api';
+import { IMovie, UFilter } from '../types';
 
-export const useMovies = (selectedFilter) => {
-    const [ movies, setMovies ] = useState([]);
+export const useMovies = (selectedFilter: UFilter = 'upcoming') => {
+    const [ movies, setMovies ] = useState<IMovie[]>([]);
 
     useEffect(() => {
-        const getMoviesByFilter = async (nextFilter) => {
+        const getMoviesByFilter = async (nextFilter: UFilter) => {
             const newMovies = await api.getMovies(nextFilter);
 
             setMovies(newMovies);
@@ -17,5 +18,5 @@ export const useMovies = (selectedFilter) => {
         getMoviesByFilter(selectedFilter);
     }, [ selectedFilter ]);
 
-    return [ movies, setMovies ];
+    return { movies };
 };

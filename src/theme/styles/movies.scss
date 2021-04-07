@@ -6,12 +6,16 @@
     flex-wrap: wrap;
     gap: 30px 20px;
 
+    & a {
+        text-decoration: none;
+    }
+
     & article {
         position: relative;
         display: flex;
         flex-direction: column;
         max-width: 250px;
-        box-shadow: 0px 1px 2px var(--color-1);
+        box-shadow: var(--box-shadow);
         transition: box-shadow 0.3s ease, transform 0.3s ease;
         cursor: pointer;
 
@@ -25,7 +29,6 @@
             padding: 5px 0;
             margin: 0;
             background-color: var(--color-11);
-            color: var(--color-13);
             font-size: 20px;
             font-weight: 500;
             border-radius: 5px 5px 0 0;
@@ -41,7 +44,6 @@
             display: flex;
             flex-grow: 1;
             position: relative;
-            color: var(--color-13);
             text-align: center;
             background-color: var(--color-11);
             border-radius: 0 0 5px 5px;
@@ -75,7 +77,6 @@
             & h1 {
                 @include mixins.center;
 
-                color: var(--color-13);
                 font-size: 18px;
                 font-weight: 600;
                 margin: 0;

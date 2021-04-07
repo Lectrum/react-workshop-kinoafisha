@@ -7,10 +7,11 @@ import { Logo } from '../theme/icons';
 
 /* Instruments */
 import { useMovies } from '../hooks';
+import { UFilter } from '../types';
 
-export const Kinoafisha = () => {
-    const [ selectedFilter, setSelectedFilter ] = useState('upcoming');
-    const [ movies ] = useMovies(selectedFilter);
+export const Kinoafisha: React.FC = () => {
+    const [ selectedFilter, setSelectedFilter ] = useState<UFilter>('upcoming');
+    const { movies } = useMovies(selectedFilter);
 
     const moviesJSX = movies.map((movie) => {
         return (

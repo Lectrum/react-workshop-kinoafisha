@@ -7,9 +7,10 @@ body {
     font-smoothing: antialiased;
     font-variant-ligatures: none;
     font-family: system-ui, Helvetica, Arial, sans-serif;
-    background-color: var(--color-10);
     user-select: none;
     min-height: 100vh;
+    background-color: var(--color-10);
+    color: var(--color-2);
 
     /**
      * Фикс для мобильного сафари, чтобы при поворотах он не склеивал и не терял контент.
@@ -23,6 +24,10 @@ body {
     & ul {
         list-style-type: none;
         padding: 0;
+    }
+
+    & a {
+        color: var(--color-2);
     }
 
     &::-webkit-scrollbar {

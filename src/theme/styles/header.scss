@@ -3,19 +3,6 @@
 .header {
     margin-bottom: 40px;
 
-    & svg {
-        width: 310px;
-        height: 50px;
-        margin-bottom: 50px;
-        color: var(--color-13);
-        cursor: pointer;
-        transition: filter 0.3s ease;
-
-        &:hover {
-            filter: brightness(0.6) sepia(1) hue-rotate(-10deg) saturate(5);
-        }
-    }
-
     & .filters {
         display: flex;
         justify-content: center;
@@ -70,7 +57,6 @@
                 position: absolute;
                 right: 18px;
                 bottom: 8px;
-                color: var(--color-13);
                 font-size: 24px;
                 font-weight: 700;
                 text-align: right;
