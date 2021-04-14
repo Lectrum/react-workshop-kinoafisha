@@ -45,7 +45,9 @@ export const Kinoafisha = () => {
                 </div>
             </header>
 
-            <section className = 'movies'>{moviesJSX}</section>
+            <section className = 'movies'>
+                {movies === null ? <h1>Загрузка...</h1> : moviesJSX}
+            </section>
         </main>
     );
 };

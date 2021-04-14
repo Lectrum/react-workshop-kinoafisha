@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { api } from '../api';
 
 export const useMovies = (filter = 'upcoming') => {
-    const [ movies, setMovies ] = useState([]);
+    const [ movies, setMovies ] = useState(null);
 
     useEffect(() => {
         const getMoviesByFilter = async (nextFilter) => {

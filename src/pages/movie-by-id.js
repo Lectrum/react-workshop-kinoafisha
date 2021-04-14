@@ -5,13 +5,22 @@ import { useParams, Link } from 'react-router-dom';
 import { Logo } from '../theme/icons';
 
 /* Instruments */
-import { useMovies } from '../hooks';
+import { useMovieById } from '../hooks';
 
 export const MovieById = () => {
     const params = useParams();
-    const { data: movies } = useMovies();
+    const { data: movieToView } = useMovieById(params.id);
 
-    const movieToView = movies?.find((movie) => movie.id === params.id);
+    const movieToViewJSX = movieToView && (
+        <section className = 'movie-view'>
+            <img src = { movieToView?.poster } />
+            <div>
+                <h1>{movieToView?.title}</h1>
+                <p>Жанр: {movieToView?.genre}</p>
+                <p>Рейтинг: {movieToView?.rating}</p>
+            </div>
+        </section>
+    );
 
     return (
         <main>
@@ -19,14 +28,9 @@ export const MovieById = () => {
 
             <Link to = '..'>&larr; Назад</Link>
 
-            <section className = 'movie-view'>
-                <img src = { movieToView?.poster } />
-                <div>
-                    <h1>{movieToView?.title}</h1>
-                    <p>Жанр: {movieToView?.genre}</p>
-                    <p>Рейтинг: {movieToView?.rating}</p>
-                </div>
-            </section>
+            {movieToView === null && <h1>Загрузка...</h1>}
+
+            {movieToViewJSX}
         </main>
     );
 };
