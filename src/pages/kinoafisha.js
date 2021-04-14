@@ -1,5 +1,5 @@
 /* Core */
-import { useState } from 'react';
+import { observer } from 'mobx-react-lite';
 
 /* Components */
 import { Filter, Movie } from '../components';
@@ -7,10 +7,10 @@ import { Logo } from '../theme/icons';
 
 /* Instruments */
 import { useMovies } from '../hooks';
+import { filterStore } from '../lib/filterStore';
 
-export const Kinoafisha = () => {
-    const [ filter, setFilter ] = useState('upcoming');
-    const { data: movies } = useMovies(filter);
+export const Kinoafisha = observer(() => {
+    const { data: movies } = useMovies();
 
     const moviesJSX = movies?.map((movie) => {
         return (
@@ -27,21 +27,27 @@ export const Kinoafisha = () => {
                 <Logo />
 
                 <div className = 'filters'>
-                    <Filter
-                        selected = { filter === 'latest' }
-                        title = { `Новинки ${new Date().getFullYear()}` }
-                        onClick = { () => setFilter('latest') }
-                    />
-                    <Filter
-                        selected = { filter === 'upcoming' }
-                        title = 'Скоро в кинотеатрах'
-                        onClick = { () => setFilter('upcoming') }
-                    />
-                    <Filter
-                        selected = { filter === 'popular' }
-                        title = 'В топ-чартах'
-                        onClick = { () => setFilter('popular') }
-                    />
+                    <section
+                        className = {
+                            filterStore.filter === 'latest' ? 'selected' : ''
+                        }
+                        onClick = { () => filterStore.setFilter('latest') }>
+                        <span>{`Новинки ${new Date().getFullYear()}`}</span>
+                    </section>
+                    <section
+                        className = {
+                            filterStore.filter === 'upcoming' ? 'selected' : ''
+                        }
+                        onClick = { () => filterStore.setFilter('upcoming') }>
+                        <span>Скоро в кинотеатрах</span>
+                    </section>
+                    <section
+                        className = {
+                            filterStore.filter === 'popular' ? 'selected' : ''
+                        }
+                        onClick = { () => filterStore.setFilter('popular') }>
+                        <span>В топ-чартах</span>
+                    </section>
                 </div>
             </header>
 
@@ -50,4 +56,4 @@ export const Kinoafisha = () => {
             </section>
         </main>
     );
-};
+});

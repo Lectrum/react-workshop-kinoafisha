@@ -12,11 +12,11 @@ export const App = () => {
                 element = { <Kinoafisha /> }
                 path = '/movies'
             />
-
             <Route
                 element = { <MovieById /> }
                 path = '/movies/:id'
             />
+
             <Route
                 element = { <Navigate to = '/movies' /> }
                 path = '*'

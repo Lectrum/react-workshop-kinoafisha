@@ -18,6 +18,10 @@
             cursor: pointer;
             outline: 2px var(--outline) var(--color-13);
 
+            &.selected {
+                outline: 2px solid var(--color-13);
+            }
+
             &:before {
                 position: absolute;
                 content: '';
@@ -39,6 +43,8 @@
 
             &:first-child {
                 background-image: url('../images/filter-1.jpg');
+                background-position: top -70px center;
+                background-repeat: no-repeat;
             }
 
             &:nth-child(2) {
@@ -47,6 +53,8 @@
 
             &:last-child {
                 background-image: url('../images/filter-3.jpg');
+                background-position: top -10px center;
+                background-repeat: no-repeat;
             }
 
             &:not(:last-child) {
@@ -89,7 +97,6 @@
             }
         }
     }
-
     @media (--phoneLandscape) {
         & .filters {
             & .filter {
