@@ -2,16 +2,16 @@
 import { makeAutoObservable } from 'mobx';
 
 /* Instruments */
-import { UFilter } from '../types';
+import { Filter } from '../types';
 
 class FilterStore {
-    selectedFilter: UFilter = 'upcoming';
+    selectedFilter: Filter = 'latest';
 
     constructor() {
         makeAutoObservable(this);
     }
 
-    setSelectedFilter(nextFilter: UFilter) {
+    setSelectedFilter(nextFilter: Filter) {
         this.selectedFilter = nextFilter;
     }
 

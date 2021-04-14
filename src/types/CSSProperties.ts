@@ -1,1 +1,3 @@
-export type UFilter = 'latest' | 'upcoming' | 'popular';
+export interface CSSProperties extends React.CSSProperties {
+    '--outline': 'solid' | '';
+}

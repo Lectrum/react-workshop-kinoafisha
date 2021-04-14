@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 
 /* Instruments */
-import { IMovie } from '../types';
+import * as types from '../types';
 
 export const Movie: React.FC<MovieProps> = (props) => {
     return (
@@ -24,5 +24,5 @@ export const Movie: React.FC<MovieProps> = (props) => {
 
 /* Types */
 interface MovieProps {
-    movie: IMovie;
+    movie: types.Movie;
 }

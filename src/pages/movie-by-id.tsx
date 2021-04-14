@@ -2,7 +2,6 @@
 import { useParams, Link } from 'react-router-dom';
 
 /* Components */
-import { Movie } from '../components';
 import { Logo } from '../theme/icons';
 
 /* Instruments */

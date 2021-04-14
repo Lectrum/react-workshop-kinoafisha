@@ -1,3 +1,1 @@
-export interface ICSSProperties extends React.CSSProperties {
-    '--outline': 'solid' | '';
-}
+export type Filter = 'latest' | 'upcoming' | 'popular';

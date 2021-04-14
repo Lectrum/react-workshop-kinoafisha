@@ -1,8 +1,8 @@
 /* Instruments */
-import { ICSSProperties } from '../types';
+import { CSSProperties } from '../types';
 
 export const Filter: React.FC<FilterProps> = (props) => {
-    const style: ICSSProperties = {
+    const style: CSSProperties = {
         '--outline': props.selected ? 'solid' : '',
     };
 
