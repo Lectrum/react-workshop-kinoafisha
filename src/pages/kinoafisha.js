@@ -2,7 +2,7 @@
 import { observer } from 'mobx-react-lite';
 
 /* Components */
-import { Filter, Movie } from '../components';
+import { Movie } from '../components';
 import { Logo } from '../theme/icons';
 
 /* Instruments */
