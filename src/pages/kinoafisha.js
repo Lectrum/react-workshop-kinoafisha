@@ -1,5 +1,5 @@
 /* Core */
-import { observer } from 'mobx-react-lite';
+import { useState } from 'react';
 
 /* Components */
 import { Filter, Movie } from '../components';
@@ -7,10 +7,10 @@ import { Logo } from '../theme/icons';
 
 /* Instruments */
 import { useMovies } from '../hooks';
-import { filterStore } from '../lib/filterStore';
 
-export const Kinoafisha: React.FC = observer(() => {
-    const { data: movies } = useMovies();
+export const Kinoafisha = () => {
+    const [ filter, setFilter ] = useState('upcoming');
+    const { data: movies } = useMovies(filter);
 
     const moviesJSX = movies?.map((movie) => {
         return (
@@ -28,20 +28,19 @@ export const Kinoafisha: React.FC = observer(() => {
 
                 <div className = 'filters'>
                     <Filter
-                        selected = { filterStore.selectedFilter === 'latest' }
+                        selected = { filter === 'latest' }
                         title = { `Новинки ${new Date().getFullYear()}` }
-                        onClick = { () => filterStore.setSelectedFilter('latest') }
+                        onClick = { () => setFilter('latest') }
                     />
                     <Filter
-                        selected = { filterStore.selectedFilter === 'upcoming' }
+                        selected = { filter === 'upcoming' }
                         title = 'Скоро в кинотеатрах'
-                        onClick = { () => filterStore.setSelectedFilter('upcoming')
-                        }
+                        onClick = { () => setFilter('upcoming') }
                     />
                     <Filter
-                        selected = { filterStore.selectedFilter === 'popular' }
+                        selected = { filter === 'popular' }
                         title = 'В топ-чартах'
-                        onClick = { () => filterStore.setSelectedFilter('popular') }
+                        onClick = { () => setFilter('popular') }
                     />
                 </div>
             </header>
@@ -49,4 +48,4 @@ export const Kinoafisha: React.FC = observer(() => {
             <section className = 'movies'>{moviesJSX}</section>
         </main>
     );
-});
+};

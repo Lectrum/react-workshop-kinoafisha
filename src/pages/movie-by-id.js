@@ -7,7 +7,7 @@ import { Logo } from '../theme/icons';
 /* Instruments */
 import { useMovies } from '../hooks';
 
-export const MovieById: React.FC = () => {
+export const MovieById = () => {
     const params = useParams();
     const { data: movies } = useMovies();
 

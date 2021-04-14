@@ -1,10 +1,7 @@
 /* Core */
 import { Link } from 'react-router-dom';
 
-/* Instruments */
-import * as types from '../types';
-
-export const Movie: React.FC<MovieProps> = (props) => {
+export const Movie = (props) => {
     return (
         <Link to = { `/movies/${props.movie.id}` }>
             <article>
@@ -21,8 +18,3 @@ export const Movie: React.FC<MovieProps> = (props) => {
         </Link>
     );
 };
-
-/* Types */
-interface MovieProps {
-    movie: types.Movie;
-}

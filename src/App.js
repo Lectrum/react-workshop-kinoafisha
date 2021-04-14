@@ -5,7 +5,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { Kinoafisha } from './pages/kinoafisha';
 import { MovieById } from './pages/movie-by-id';
 
-export const App: React.FC = () => {
+export const App = () => {
     return (
         <Routes>
             <Route
